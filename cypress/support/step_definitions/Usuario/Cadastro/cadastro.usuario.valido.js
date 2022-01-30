@@ -1,13 +1,14 @@
 /// <reference types= "cypress"/>
 
-const Faker = require('faker');
+const Faker = require('faker')
+
 
 /* global Then, When, Given */
 
-let user = {email: Faker.internet.email(),
+let user = { email: Faker.internet.email(),
     name: {
-         firstName: Faker.internet.firstName(),
-         lastName: Faker.internet.lastName()
+         firstName: Faker.name.firstName(),
+         lastName: Faker.name.lastName()
     }}
 
 Given('Estou navegando na loja', () => {

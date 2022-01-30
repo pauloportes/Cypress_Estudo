@@ -10,8 +10,8 @@ describe('cadastro_usuario', () => {
         before(() => {
             user = {email: Faker.internet.email(),
                        name: {
-                            firstName: Faker.internet.firstName(),
-                            lastName: Faker.internet.lastName()
+                            firstName: Faker.name.firstName(),
+                            lastName: Faker.name.lastName()
                        }}
             cy.visit('?controller=authentication&back=my-account')
         })
