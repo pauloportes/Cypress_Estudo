@@ -5,10 +5,10 @@ const Faker = require('faker')
 
 describe('cadastro_usuario', () => {
 
-        let usuario
+        let user
 
         before(() => {
-            usuario = {email: Faker.internet.email(),
+            user = {email: Faker.internet.email(),
                        name: {
                             firstName: Faker.internet.firstName(),
                             lastName: Faker.internet.lastName()
@@ -19,15 +19,15 @@ describe('cadastro_usuario', () => {
 
         it ('informar email novo', () => {
             cy.get('#email_create')
-                .type(`${usuario.email}{enter}`) //só preciso usuar esse aspas simples craseado e as chaves no faker por conta do uso do enter. Poderia clicar no botão de salvar cadastro usando get e click.
+                .type(`${user.email}{enter}`) //só preciso usuar esse aspas simples craseado e as chaves no faker por conta do uso do enter. Poderia clicar no botão de salvar cadastro usando get e click.
         })
 
         it ('Preencher campos obrigatórios', () => {
             cy.url().should('include', '#account-creation')
-            cy.get('#email_create').should('include.value', usuario.email)
+            cy.get('#email_create').should('include.value', user.email)
             cy.get('#id_gender2').check()
-            cy.get('#customer_firstname').type(usuario.firstName)
-            cy.get('#customer_lastname').type(usuario.lastName)
+            cy.get('#customer_firstname').type(user.firstName)
+            cy.get('#customer_lastname').type(user.lastName)
             cy.get('#passwd').type(Faker.internet.password())
             cy.get('#address1').type(Faker.address.streetAddress())
             cy.get('#city').type(Faker.address.cityName())
@@ -38,6 +38,6 @@ describe('cadastro_usuario', () => {
 
         it ('Finalizar o cadastro', () => {
             cy.get('#submitAccount > span').click()
-            cy.get('.account > span').should('have.text', `${usuario.name.firstName} ${usuario.name.lastName}`)
+            cy.get('.account > span').should('have.text', `${user.name.firstName} ${user.name.lastName}`)
         })
 })
