@@ -9,7 +9,7 @@ describe('cadastro_usuario', () => {
 
         before(() => {
             user = {email: Faker.internet.email(),
-                       name: {
+                    name: {
                             firstName: Faker.name.firstName(),
                             lastName: Faker.name.lastName()
                        }}
@@ -23,11 +23,12 @@ describe('cadastro_usuario', () => {
         })
 
         it ('Preencher campos obrigatórios', () => {
+            cy.wait(7000)
             cy.url().should('include', '#account-creation')
-            cy.get('#email_create').should('include.value', user.email)
+            cy.get('#email').should('include.value', user.email)
             cy.get('#id_gender2').check()
-            cy.get('#customer_firstname').type(user.firstName)
-            cy.get('#customer_lastname').type(user.lastName)
+            cy.get('#customer_firstname').type(user.name.firstName)
+            cy.get('#customer_lastname').type(user.name.lastName)
             cy.get('#passwd').type(Faker.internet.password())
             cy.get('#address1').type(Faker.address.streetAddress())
             cy.get('#city').type(Faker.address.cityName())

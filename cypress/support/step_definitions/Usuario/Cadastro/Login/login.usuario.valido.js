@@ -7,8 +7,8 @@ When ('preencho os dados de login com usuario valido', () => {
     global.usuario.nome = 'Cypress Qazando'
 
 
-    cy.get('.email').type(global.usuario.email)
-    cy.get('.#passwd').type(global.usuario.senha)
+    cy.get('#email').type(global.usuario.email)
+    cy.get('#passwd').type(global.usuario.senha)
 })
 
 And ('clico para realizar login', () => {

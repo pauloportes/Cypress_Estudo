@@ -4,9 +4,9 @@
 
 When ('preencho os dados de login com usuario valido, pressionando enter', () => {
     global.usuario.email = 'usuario.logado@qazando.com.br'
-    global.usuario.nome = 'Usuario Enter'
+    global.usuario.nome = 'Cypress Qazando'
 
 
-    cy.get('.email').type(global.usuario.email)
-    cy.get('.#passwd').type(`${global.usuario.senha}{enter}`)
+    cy.get('#email').type(global.usuario.email)
+    cy.get('#passwd').type(`${global.usuario.senha}{enter}`)
 })
